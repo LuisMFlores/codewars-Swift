@@ -35,5 +35,21 @@ class CodewarsTests: XCTestCase {
         XCTAssertEqual(16, grow([4,1,1,1,4]))
         XCTAssertEqual(64, grow([2,2,2,2,2,2]))
     }
+    
+    func testBalancedTests() {
+        XCTAssertEqual(balancedNumber(7), "Balanced")
+        XCTAssertEqual(balancedNumber(959), "Balanced")
+        XCTAssertEqual(balancedNumber(13), "Balanced")
+        XCTAssertEqual(balancedNumber(56239814), "Balanced")
+        XCTAssertEqual(balancedNumber(424), "Balanced")
+    }
+    
+    func testNotBalancedTests() {
+        XCTAssertEqual(balancedNumber(1024), "Not Balanced")
+        XCTAssertEqual(balancedNumber(66545), "Not Balanced")
+        XCTAssertEqual(balancedNumber(295591), "Not Balanced")
+        XCTAssertEqual(balancedNumber(1230987), "Not Balanced")
+    }
+    
 
 }
