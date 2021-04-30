@@ -40,3 +40,17 @@ func splitArray(numbers: [Int]) -> (leftSide: [Int], rightSide: [Int]) {
         return (Array(numbers[numbers.startIndex..<middleIndex]), Array(numbers[numbers.index(after: middleIndex)..<numbers.endIndex]))
     }
 }
+
+// Create a function add(n)/Add(n) which returns a function
+// that always adds n to any number
+
+func add(_ n: Int) -> ((Int) -> Int) {
+    return { (number: Int) -> Int in
+        return n + number
+    }
+}
+
+func addVariant(_ n: Int) -> ((Int) -> Int) {
+    return { $0 + n }
+}
+
