@@ -54,3 +54,28 @@ func addVariant(_ n: Int) -> ((Int) -> Int) {
     return { $0 + n }
 }
 
+// Simplified directions given so the user doesn't have to revisit a point where it has has been already (NORTH THEN SOUTH)
+
+func dirReduc(_ arr: [String]) -> [String] {
+    var newArr = [String]()
+    arr.forEach { item in
+        if let lastItem = newArr.last {
+            if addToDirArray(lastStr: lastItem, newStr: item){
+                newArr.append(item)
+            } else {
+                newArr.popLast()
+            }
+        } else {
+            newArr.append(item)
+        }
+    }
+    return newArr
+}
+
+func addToDirArray(lastStr: String, newStr:String) -> Bool {
+    if lastStr == "NORTH" && newStr == "SOUTH" || lastStr == "SOUTH" && newStr == "NORTH" || lastStr == "EAST" && newStr == "WEST" || lastStr == "WEST" && newStr == "EAST" {
+        return false
+    }
+    return true
+}
+

@@ -19,8 +19,12 @@ class CodewarsTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        var a = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]
+        testDirReduc(a, ["WEST"])
+        a = ["EAST", "EAST", "WEST", "NORTH", "WEST", "EAST", "EAST", "SOUTH", "NORTH", "WEST"]
+        testDirReduc(a, ["EAST", "NORTH"])
+        a = ["NORTH", "WEST", "SOUTH", "EAST"]
+        testDirReduc(a, ["NORTH", "WEST", "SOUTH", "EAST"])
     }
 
     func testPerformanceExample() throws {
@@ -59,5 +63,8 @@ class CodewarsTests: XCTestCase {
         XCTAssertEqual(Codewars.add(100)(23), 123, "add(100)(23) does not equal 123")
     }
     
-
+    func testDirReduc(_ arr: [String], _ expected: [String]) {
+            let ans = dirReduc(arr)
+        XCTAssertTrue(ans == expected, "should return \(expected), got \(ans)")
+    }
 }
